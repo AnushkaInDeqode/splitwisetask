@@ -20,6 +20,7 @@ public class ExpenseController {
         this.userService = userService;
     }
 
+
     @PostMapping("/expenses")
     public ResponseEntity<String> addExpense(@RequestBody ExpenseRequest expenseRequest) {
         try {
@@ -57,5 +58,4 @@ public class ExpenseController {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
-
 }
