@@ -3,6 +3,7 @@ package com.expenseSharing.controller;
 import com.expenseSharing.model.User;
 import com.expenseSharing.service.ExpenseService;
 import com.expenseSharing.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.expenseSharing.model.ExpenseRequest;
@@ -10,16 +11,11 @@ import com.expenseSharing.model.ExpenseRequest;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 public class ExpenseController {
 
     private final ExpenseService expenseService;
     private final UserService userService;
-
-    public ExpenseController(ExpenseService expenseService, UserService userService) {
-        this.expenseService = expenseService;
-        this.userService = userService;
-    }
-
 
     @PostMapping("/expenses")
     public ResponseEntity<String> addExpense(@RequestBody ExpenseRequest expenseRequest) {
